@@ -1,0 +1,42 @@
+<p>estructuras works!</p>
+
+<div class="container py-3">
+  <h2>Estructuras de Control</h2>
+
+  <!-- ngIf -->
+   <button class="btn btn-secondary mb-2" (click)="showInfo = !showInfo">
+    Toggle showInfo
+   </button>
+   <div *ngIf="showInfo, else noInfopl">
+    <p>Mostrando información: ejemplo de *ngIf*</p>
+   </div>
+   <ng-template #noInfopl>
+    <p>información oculta.</p>
+   </ng-template>
+
+   <hr>
+
+   <!-- ngFor -->
+   <h4>Lista de estudiantes (ngFor)</h4>
+   <ul>
+    <li *ngFor="let s of students; index as i">
+      {{ i + 1 }} - {{ s.name }}
+    </li>
+   </ul>
+
+   <hr>
+
+   <!-- ngSwitch -->
+   <h4>Ejemplo ngSwitch</h4>
+   <select [(ngModel)]="role" class="form-select w-auto mb-2">
+    <option value="admin">Admin</option>
+    <option value="editor">Editor</option>
+    <option value="viewer">Viewer</option>
+   </select>
+
+   <div [ngSwitch]="role">
+    <div ngSwitchCase="admin"><strong>Administración completa</strong></div>
+    <div ngSwitchCase="editor"><strong>Puede editar contenido</strong></div>
+    <div ngSwitchCase="viewer"><strong>Solo visualización</strong></div>
+   </div>
+</div>

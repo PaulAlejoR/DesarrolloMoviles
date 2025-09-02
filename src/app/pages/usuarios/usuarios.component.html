@@ -1,0 +1,28 @@
+<p>usuarios works!</p>
+
+<div class="container py-3">
+  <h2>Usuarios</h2>
+
+  <div *ngIf="loading" class="alert alert-info">Cargando...</div>
+  <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
+
+  <div *ngIf="!loading && users?.length">
+    <div class="row">
+      <div class="col-md-6 mb-3" *ngFor="let u of users; trackBy: trackById">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">{{ u.name }}</h5>
+            <p class="card-text"><strong>Email:</strong> {{ u.email }}</p>
+            <p class="card-text"><strong>Tel:</strong> {{ u.phone }}</p>
+            <p class="card-text"><strong>Web:</strong> {{ u.website }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="!loading && !users.length" class="alert alert-warning">
+    NO HAY USUARIOS
+  </div>
+
+</div>
